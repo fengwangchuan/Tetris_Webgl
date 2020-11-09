@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+           attribute vec4 vPosition;
+           attribute vec4 vColor;
+           varying vec4 Color;
+
+
+void  main()
+{
+    Color=vColor;
+
+    gl_Position = vPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+varying  vec4 Color;
+void
+main()
+{
+    gl_FragColor = Color;
+}
+
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="Tetris.js"></script>
+
+
+<link href="position.css" rel="stylesheet" type="text/css" />
+<body>
+<canvas id="gl-canvas" width="256" height="512">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas >
+
+<input id="start" type="button" value="start" onclick="startgame();" />
+<input id="lowspeed" type="button" value="slow" onclick="lowspeed();"   />
+<input  id="highspeed" type="button"  value="fast" onclick="highspeed();" >
+<div   id="tage"  >
+    <h3>得分:</h3>
+</div>
+<div  id="scores"></div>
+
+</body>
+</html>
